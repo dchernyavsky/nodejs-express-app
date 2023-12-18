@@ -13,7 +13,7 @@ router.get("/photos", async (req, res) => {
 router.get("/photos/:id", async (req, res) => {
   try {
     const photos = await Photo.find({ id: req.params.id });
-    res.json(photos);
+    res.json(photos?.[0]);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
