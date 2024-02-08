@@ -2,6 +2,9 @@ const Router = require("express");
 const Photo = require("./Photo.js");
 
 const router = new Router();
+router.get("/", async (req, res) => {
+  res.json("App running");
+});
 router.get("/photos", async (req, res) => {
   try {
     const photos = await Photo.find({ albumId: req.query.albumId });
